@@ -256,7 +256,13 @@ class _CupertinoControlsState extends State<CupertinoControls>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           _buildPlayPause(controller, iconColor, barHeight),
+                          const Spacer(),
                           _buildLive(iconColor),
+                          if (chewieController.additionalOptions != null &&
+                              chewieController
+                                  .additionalOptions!(context)
+                                  .isNotEmpty)
+                            _buildOptionsButton(iconColor, barHeight),
                         ],
                       )
                     : Row(
